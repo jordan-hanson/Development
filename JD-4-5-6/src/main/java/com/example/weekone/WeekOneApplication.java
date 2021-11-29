@@ -10,7 +10,8 @@ public class WeekOneApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WeekOneApplication.class, args);
-        fibonacci(0, 1, 13);
+        ArrayList fibonacciArray = fibonacci(0, 1, 13);
+        ArrayList reversedFibonacciArray = reverseArray(fibonacciArray);
     }
 
     public static ArrayList fibonacci(int firstNumber, int secondNumber, int lengthOfSequence){
@@ -29,5 +30,18 @@ public class WeekOneApplication {
             secondNumber = nextNumber;
         }
         return result;
+    }
+
+    public static ArrayList reverseArray(ArrayList arrayToReverse){
+        // duplicate the array
+        ArrayList<Integer> copiedArrayToReverse = new ArrayList<>(arrayToReverse);
+
+        ArrayList<Integer> reversedArray = new ArrayList<>();
+
+        for(int i = copiedArrayToReverse.size() -1; i >= 0; i--){
+            reversedArray.add(copiedArrayToReverse.get(i));
+        }
+
+        return reversedArray;
     }
 }
