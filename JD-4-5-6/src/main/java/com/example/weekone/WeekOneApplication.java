@@ -3,6 +3,8 @@ package com.example.weekone;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+
 @SpringBootApplication
 public class WeekOneApplication {
 
@@ -11,15 +13,15 @@ public class WeekOneApplication {
         fibonacci(0, 1, 13);
     }
 
-    public static String fibonacci(int firstNumber, int secondNumber, int lengthOfSequence){
+    public static ArrayList fibonacci(int firstNumber, int secondNumber, int lengthOfSequence){
         // Example: firstNumber = 0 secondNumber = 1 lengthOfSequence= 13
-        String result = "";
+        ArrayList result = new ArrayList();
         for ( int i = 1; i <= lengthOfSequence; i++){
             if(i == lengthOfSequence){
-                result += firstNumber;
+                result.add(firstNumber);
                 System.out.println(firstNumber);
             } else{
-                result += firstNumber + ", ";
+                result.add(firstNumber);
                 System.out.print(firstNumber + ", ");
             }
             int nextNumber = firstNumber + secondNumber;
