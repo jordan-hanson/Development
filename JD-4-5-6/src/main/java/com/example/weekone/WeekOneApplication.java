@@ -11,20 +11,20 @@ public class WeekOneApplication {
         fibonacci(0, 1, 13);
     }
 
-    public static String fibonacci(int firstTerm, int secondTerm, int lengthOfSequence){
-        // Example: firstTerm = 0 secondTerm = 1 lengthOfSequence= 13
+    public static String fibonacci(int firstNumber, int secondNumber, int lengthOfSequence){
+        // Example: firstNumber = 0 secondNumber = 1 lengthOfSequence= 13
         String result = "";
         for ( int i = 1; i <= lengthOfSequence; i++){
             if(i == lengthOfSequence){
-                result += firstTerm;
-                System.out.println(firstTerm);
+                result += firstNumber;
+                System.out.println(firstNumber);
             } else{
-                result += firstTerm + ", ";
-                System.out.print(firstTerm + ", ");
+                result += firstNumber + ", ";
+                System.out.print(firstNumber + ", ");
             }
-            int nextTerm = firstTerm + secondTerm;
-            firstTerm = secondTerm;
-            secondTerm = nextTerm;
+            int nextNumber = firstNumber + secondNumber;
+            firstNumber = secondNumber;
+            secondNumber = nextNumber;
         }
         return result;
     }
