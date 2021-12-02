@@ -1,30 +1,26 @@
 package com.example.weekone;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import java.util.ArrayList;
+import java.util.List;
 
-@SpringBootApplication
 public class WeekOneApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WeekOneApplication.class, args);
-        ArrayList fibonacciArray = fibonacci(0, 1, 13);
-        ArrayList reversedFibonacciArray = reverseArray(fibonacciArray);
     }
 
-    public static ArrayList fibonacci(int firstNumber, int secondNumber, int lengthOfSequence){
-        // Example: firstNumber = 0 secondNumber = 1 lengthOfSequence= 13
-        ArrayList result = new ArrayList();
-        for ( int i = 1; i <= lengthOfSequence; i++){
-            if(i == lengthOfSequence){
-                result.add(firstNumber);
-                System.out.println(firstNumber);
-            } else{
-                result.add(firstNumber);
-                System.out.print(firstNumber + ", ");
-            }
+    /**
+     *
+     * Definition: Used to generate a Fibonnaci Sequence starting at 0 and 1, based on the length you provide.
+     * @param lengthOfSequence
+     * @return ArrayList<Integer>
+     */
+    public static List<Integer> generateFibonacciSequence(int lengthOfSequence){
+        // Example: lengthOfSequence= 13
+        int firstNumber = 0;
+        int secondNumber = 1;
+        List<Integer> result = new ArrayList<>();
+        for ( int i = 0; i <= lengthOfSequence; i++){
+            result.add(firstNumber);
             int nextNumber = firstNumber + secondNumber;
             firstNumber = secondNumber;
             secondNumber = nextNumber;
@@ -32,11 +28,11 @@ public class WeekOneApplication {
         return result;
     }
 
-    public static ArrayList reverseArray(ArrayList arrayToReverse){
+    public static List<Integer> reverseArray(List<Integer> arrayToReverse){
         // duplicate the array
-        ArrayList<Integer> copiedArrayToReverse = new ArrayList<>(arrayToReverse);
+        List<Integer> copiedArrayToReverse = new ArrayList<>(arrayToReverse);
 
-        ArrayList<Integer> reversedArray = new ArrayList<>();
+        List<Integer> reversedArray = new ArrayList<>();
 
         for(int i = copiedArrayToReverse.size() -1; i >= 0; i--){
             reversedArray.add(copiedArrayToReverse.get(i));
