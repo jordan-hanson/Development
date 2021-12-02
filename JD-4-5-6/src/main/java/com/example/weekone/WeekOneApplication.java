@@ -19,7 +19,7 @@ public class WeekOneApplication {
         int firstNumber = 0;
         int secondNumber = 1;
         List<Integer> result = new ArrayList<>();
-        for ( int i = 1; i <= lengthOfSequence; i++){
+        for ( int i = 0; i <= lengthOfSequence; i++){
             result.add(firstNumber);
             int nextNumber = firstNumber + secondNumber;
             firstNumber = secondNumber;

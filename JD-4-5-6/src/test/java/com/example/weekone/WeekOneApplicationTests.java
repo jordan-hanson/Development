@@ -11,9 +11,9 @@ import java.util.Arrays;
 class WeekOneApplicationTests {
 
     @Test
-    void fibonacciNumbers() {
+    void generateFibonacciSequence() {
         int totalInSequence = 13;
-        ArrayList<Integer> expectedOut = new ArrayList<Integer>(Arrays.asList(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144));
+        ArrayList<Integer> expectedOut = new ArrayList<Integer>(Arrays.asList(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233));
         assertEquals(expectedOut, WeekOneApplication.generateFibonacciSequence(totalInSequence));
     }
 
