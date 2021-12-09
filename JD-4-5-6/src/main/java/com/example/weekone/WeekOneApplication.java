@@ -27,4 +27,17 @@ public class WeekOneApplication {
         }
         return result;
     }
+
+    public static List<Integer> reverseArray(List<Integer> arrayToReverse){
+        // duplicate the array
+        List<Integer> copiedArrayToReverse = new ArrayList<>(arrayToReverse);
+
+        List<Integer> reversedArray = new ArrayList<>();
+
+        for(int i = copiedArrayToReverse.size() -1; i >= 0; i--){
+            reversedArray.add(copiedArrayToReverse.get(i));
+        }
+
+        return reversedArray;
+    }
 }
