@@ -35,6 +35,9 @@ public class WeekOneApplication {
 //        bubbleSort(result);
 //        System.out.println(System.nanoTime());
 
+        // Selection Sort
+//        selectionSort(result);
+//        System.out.println(System.nanoTime());
 
 
         return result;
@@ -104,6 +107,48 @@ public class WeekOneApplication {
                 }
             }
 
+            outerLoopCount++;
+        }
+        System.out.println("Outer Loop count: " + outerLoopCount);
+        System.out.println("Inner Loop count: " + innerLoopCount);
+    }
+
+    /**
+     * Selection Sort
+     * Definition: Sort parameter List with Integer 233 added at the 0 index of FibonacciSequence
+     * @param fibonnaciList
+     *
+     * Notes: Outer Loop count: 12, Inner Loop count: 78, Total count = 90 loops.
+     */
+    public static void selectionSort(List<Integer> fibonnaciList){
+
+        // Loop count to count the amount of loops this InsertionSort took
+        int outerLoopCount = 0;
+        int innerLoopCount = 0;
+
+        // Initialize with 233 at index of 0 to provided array
+        fibonnaciList.add(0, 233);
+        // Loop through the fibonnaciList and sort starting at index of 0
+        int n = fibonnaciList.size();
+
+        // One by one move boundary of unsorted subarray
+        for (int i = 0; i < n-1; i++)
+        {
+            // Find the minimum element in unsorted array
+            int min_idx = i;
+            for (int j = i+1; j < n; j++)
+            {
+                if (fibonnaciList.get(j) < fibonnaciList.get(min_idx)) {
+                    min_idx = j;
+                }
+                innerLoopCount++;
+            }
+
+            // Swap the found minimum element with the first
+            // element
+            int temp = fibonnaciList.get(min_idx);
+            fibonnaciList.set(min_idx, fibonnaciList.get(i));
+            fibonnaciList.set(i, temp);
             outerLoopCount++;
         }
         System.out.println("Outer Loop count: " + outerLoopCount);
