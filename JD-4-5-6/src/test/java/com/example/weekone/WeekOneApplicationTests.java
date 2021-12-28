@@ -35,5 +35,12 @@ class WeekOneApplicationTests {
         assertEquals(expectedOut, WeekOneApplication.insertionSort(fibonacciSequence));
     }
 
+    @Test
+    void insertionSortRandomized(){
+        List<Integer> randomList = new ArrayList<Integer>(Arrays.asList(0,43,3,1,24,31,18,4,4,5,-1,-233));
+        ArrayList<Integer> expectedOut = new ArrayList<Integer>(Arrays.asList(-233,-1,0,1,3,4,4,5,18,24,31,43, 233));
+        assertEquals(expectedOut, WeekOneApplication.insertionSort(randomList));
+    }
+
 
 }
