@@ -1,9 +1,9 @@
-package com.example.weekone;
+package com.example.sorting;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeekOneApplication {
+public class Sorting {
 
     public static void main(String[] args) {
     }
