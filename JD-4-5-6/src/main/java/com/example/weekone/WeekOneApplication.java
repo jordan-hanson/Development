@@ -38,8 +38,6 @@ public class WeekOneApplication {
         int outerLoopCount = 0;
         int whileLoopCount = 0;
 
-        // Initialize With 233 at index of 0 to provided array
-        fibonnaciList.add(0, 233);
         // Loop through the fibonnaciList and sort IN PLACE looking at the previous and current
         for (int i = 1; i < fibonnaciList.size(); i++) {
             // Previous index is the current index value - 1
