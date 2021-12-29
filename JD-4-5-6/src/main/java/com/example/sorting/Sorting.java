@@ -29,27 +29,27 @@ public class Sorting {
     /**
      * Insertion Sort
      * Definition: Sort parameter List with Integer 233 added at the 0 index of FibonacciSequence in-place
-     * @param fibonnaciList
+     * @param fibonacciList
      *
      * Notes: This works in-place. It takes total 144 loops to get through the sequence with length of 12
      */
-    public static int insertionSort(List<Integer> fibonnaciList){
+    public static int insertionSort(List<Integer> fibonacciList){
         int comparableInt = 0;
 
-        // Loop through the fibonnaciList and sort IN PLACE looking at the previous and current
-        for (int i = 1; i < fibonnaciList.size(); i++) {
+        // Loop through the fibonacciList and sort IN PLACE looking at the previous and current
+        for (int i = 1; i < fibonacciList.size(); i++) {
             // Previous index is the current index value - 1
             int previous = i-1;
             // Current index integer value
-            Integer current = fibonnaciList.get(i); //key
+            Integer current = fibonacciList.get(i); //key
             // While previous value is greater than the current value
-            while ((previous > -1) && (fibonnaciList.get(previous) > current)) {
+            while ((previous > -1) && (fibonacciList.get(previous) > current)) {
                 // Set the values
-                fibonnaciList.set(previous+1, fibonnaciList.get(previous));
+                fibonacciList.set(previous+1, fibonacciList.get(previous));
                 comparableInt = current.compareTo(previous);
                 previous--;
             }
-            fibonnaciList.set(previous+1, current);
+            fibonacciList.set(previous+1, current);
         }
         return comparableInt;
     }
@@ -57,24 +57,24 @@ public class Sorting {
     /**
      * Bubble Sort
      * Definition: Sort parameter List with Integer 233 added at the 0 index of FibonacciSequence
-     * @param fibonnaciList
+     * @param fibonacciList
      */
-    public static void bubbleSort(List<Integer> fibonnaciList){
+    public static void bubbleSort(List<Integer> fibonacciList){
 
-        int n = fibonnaciList.size();
+        int n = fibonacciList.size();
         // Loop through the length of the collection list
         for (int i = 0; i < n-1; i++) {
             // For Each element loop through and compare
             for (int j = 0; j < n - i - 1; j++) {
                 // If the current value is greater than the next only switch
-                if (fibonnaciList.get(j) > fibonnaciList.get(j + 1)) {
+                if (fibonacciList.get(j) > fibonacciList.get(j + 1)) {
                     // Current value to hold as a variable
-                    int current = fibonnaciList.get(j);
+                    int current = fibonacciList.get(j);
                     // Next value to hold as a variable
-                    int next = fibonnaciList.get(j + 1);
+                    int next = fibonacciList.get(j + 1);
                     // Set the New current and the next values, so the current is now less than the next
-                    fibonnaciList.set(j + 1, current);
-                    fibonnaciList.set(j, next);
+                    fibonacciList.set(j + 1, current);
+                    fibonacciList.set(j, next);
                 }
             }
         }
