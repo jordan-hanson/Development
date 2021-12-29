@@ -124,7 +124,7 @@ class SortingTests {
     }
 
     @Test
-    void mergeSortTest() {
+    void mergeSortTest() throws Exception {
         int[] arrayInput = new int[]{233, 0, 43, 3, 1, 24, 31, 18, 4, 4, 5, -1, -233};
         int[] expectedOutput = new int[]{-233, -1, 0, 1, 3, 4, 4, 5, 18, 24, 31, 43, 233};
 
@@ -134,6 +134,99 @@ class SortingTests {
         Sorting.mergeSort(arrayInput);
         // ArrayInput now equals expectedOutput
         Assertions.assertTrue(Arrays.equals(arrayInput, expectedOutput));
+
+    }
+
+    @Test
+    void mergeSortEvenInput() throws Exception {
+        int[] arrayEvenInput = new int[]{0, 43, 3, 1, 24, 31, 18, 4, 4, 5, -1, -233}; // even number
+        int[] expectedEvenOutput = new int[]{-233, -1, 0, 1, 3, 4, 4, 5, 18, 24, 31, 43};
+
+        // arrayInput does not equal expectedOutput
+        Assertions.assertFalse(Arrays.equals(arrayEvenInput, expectedEvenOutput));
+        // Ran quickSort Method
+        Sorting.mergeSort(arrayEvenInput);
+        // ArrayInput now equals expectedOutput
+        Assertions.assertTrue(Arrays.equals(arrayEvenInput, expectedEvenOutput));
+
+    }
+
+    @Test
+    void mergeSortEmptyInput() throws Exception {
+        int[] input = new int[]{}; // empty list
+        int[] expectedOutput = new int[]{};
+
+        // Ran quickSort Method
+        Sorting.mergeSort(input);
+        // ArrayInput now equals expectedOutput
+        Assertions.assertTrue(Arrays.equals(input, expectedOutput));
+
+    }
+
+    @Test
+    void mergeSortNullInput() throws Exception {
+        int[] input = null; // null pointer
+        int[] expectedOutput = null;
+        String expectedErrorMessage = "Input array cannot be null";
+
+        // Try quickSort Method
+        try{
+            Sorting.mergeSort(input);
+        } catch (Exception e){
+            Assertions.assertTrue(e.getMessage().contains(expectedErrorMessage));
+        }
+
+    }
+
+    @Test
+    void mergeSortAlreadySorted() throws Exception {
+        int[] input = new int[]{-233, -1, 0, 1, 3, 4, 4, 5, 18, 24, 31, 43}; // sorted
+        int[] expectedOutput = new int[]{-233, -1, 0, 1, 3, 4, 4, 5, 18, 24, 31, 43};
+
+        // Ran quickSort Method
+        Sorting.mergeSort(input);
+        // ArrayInput now equals expectedOutput
+        Assertions.assertTrue(Arrays.equals(input, expectedOutput));
+
+    }
+
+    @Test
+    void mergeSortOddLengthNumber() throws Exception {
+        int[] input = new int[]{0, 3, 1, 24, 31, 18, 4, 4, 5, -1, -233}; // odd length number
+        int[] expectedOutput = new int[]{-233, -1, 0, 1, 3, 4, 4, 5, 18, 24, 31};
+
+        // arrayInput does not equal expectedOutput
+        Assertions.assertFalse(Arrays.equals(input, expectedOutput));
+        // Ran quickSort Method
+        Sorting.mergeSort(input);
+        // ArrayInput now equals expectedOutput
+        Assertions.assertTrue(Arrays.equals(input, expectedOutput));
+
+    }
+
+    @Test
+    void mergeSortOneElement() throws Exception {
+        int[] input = new int[]{43}; // one element length
+        int[] expectedOutput = new int[]{43};
+
+        // Ran quickSort Method
+        Sorting.mergeSort(input);
+        // ArrayInput now equals expectedOutput
+        Assertions.assertTrue(Arrays.equals(input, expectedOutput));
+
+    }
+
+    @Test
+    void mergeSortNegativeElements() throws Exception {
+        int[] input = new int[]{-3, -1, -24, -31, -18, -4, -4, -5, -1, -233}; // negative numbers
+        int[] expectedOutput = new int[]{-233, -31,-24,-18,-5, -4, -4,-3,-1, -1};
+
+        // arrayInput does not equal expectedOutput
+        Assertions.assertFalse(Arrays.equals(input, expectedOutput));
+        // Ran quickSort Method
+        Sorting.mergeSort(input);
+        // ArrayInput now equals expectedOutput
+        Assertions.assertTrue(Arrays.equals(input, expectedOutput));
 
     }
 

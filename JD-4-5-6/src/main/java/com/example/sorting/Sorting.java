@@ -157,7 +157,10 @@ public class Sorting {
      * @param inputArray
      * @return
      */
-    public static void mergeSort(int[] inputArray){
+    public static void mergeSort(int[] inputArray) throws Exception {
+        if(inputArray == null){
+            throw new Exception("Input array cannot be null");
+        }
         int inputLength = inputArray.length;
 
         // check if the input is less than 2 (Includes only one thing)
