@@ -24,22 +24,6 @@ public class Sorting {
             firstNumber = secondNumber;
             secondNumber = nextNumber;
         }
-
-        System.out.println(System.nanoTime());
-
-        // Insertion Sort
-//        insertionSort(result);
-//        System.out.println(System.nanoTime());
-
-        // Bubble Sort
-//        bubbleSort(result);
-//        System.out.println(System.nanoTime());
-
-        // Selection Sort
-//        selectionSort(result);
-//        System.out.println(System.nanoTime());
-
-
         return result;
     }
     /**
@@ -49,10 +33,8 @@ public class Sorting {
      *
      * Notes: This works in-place. It takes total 144 loops to get through the sequence with length of 12
      */
-    public static List<Integer> insertionSort(List<Integer> fibonnaciList){
-        // Loop count to count the amount of loops this InsertionSort took
-        int outerLoopCount = 0;
-        int whileLoopCount = 0;
+    public static int insertionSort(List<Integer> fibonnaciList){
+        int comparableInt = 0;
 
         // Loop through the fibonnaciList and sort IN PLACE looking at the previous and current
         for (int i = 1; i < fibonnaciList.size(); i++) {
@@ -64,16 +46,12 @@ public class Sorting {
             while ((previous > -1) && (fibonnaciList.get(previous) > current)) {
                 // Set the values
                 fibonnaciList.set(previous+1, fibonnaciList.get(previous));
+                comparableInt = current.compareTo(previous);
                 previous--;
-                whileLoopCount++;
             }
             fibonnaciList.set(previous+1, current);
-            outerLoopCount++;
         }
-
-        System.out.println("Outer Loop count: " + outerLoopCount);
-        System.out.println("While Loop count: " + whileLoopCount);
-        return fibonnaciList;
+        return comparableInt;
     }
 
     /**
@@ -82,17 +60,12 @@ public class Sorting {
      * @param fibonnaciList
      */
     public static void bubbleSort(List<Integer> fibonnaciList){
-        // Loop count to count the amount of loops this BubbleSort took
-        int outerLoopCount = 0;
-        int innerLoopCount = 0;
 
-        fibonnaciList.add(0, 233);
         int n = fibonnaciList.size();
         // Loop through the length of the collection list
         for (int i = 0; i < n-1; i++) {
             // For Each element loop through and compare
             for (int j = 0; j < n - i - 1; j++) {
-                innerLoopCount++;
                 // If the current value is greater than the next only switch
                 if (fibonnaciList.get(j) > fibonnaciList.get(j + 1)) {
                     // Current value to hold as a variable
@@ -104,11 +77,7 @@ public class Sorting {
                     fibonnaciList.set(j, next);
                 }
             }
-
-            outerLoopCount++;
         }
-        System.out.println("Outer Loop count: " + outerLoopCount);
-        System.out.println("Inner Loop count: " + innerLoopCount);
     }
 
     /**
@@ -120,12 +89,6 @@ public class Sorting {
      */
     public static void selectionSort(List<Integer> fibonnaciList){
 
-        // Loop count to count the amount of loops this InsertionSort took
-        int outerLoopCount = 0;
-        int innerLoopCount = 0;
-
-        // Initialize with 233 at index of 0 to provided array
-        fibonnaciList.add(0, 233);
         // Loop through the fibonnaciList and sort starting at index of 0
         int n = fibonnaciList.size();
 
@@ -139,7 +102,6 @@ public class Sorting {
                 if (fibonnaciList.get(j) < fibonnaciList.get(min_idx)) {
                     min_idx = j;
                 }
-                innerLoopCount++;
             }
 
             // Swap the found minimum element with the first
@@ -147,10 +109,7 @@ public class Sorting {
             int temp = fibonnaciList.get(min_idx);
             fibonnaciList.set(min_idx, fibonnaciList.get(i));
             fibonnaciList.set(i, temp);
-            outerLoopCount++;
         }
-        System.out.println("Outer Loop count: " + outerLoopCount);
-        System.out.println("Inner Loop count: " + innerLoopCount);
     }
 
     /**
