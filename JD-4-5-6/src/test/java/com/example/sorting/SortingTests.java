@@ -110,4 +110,17 @@ class SortingTests {
         assertEquals(inputList, expectedSortedList);
     }
 
+    @Test
+    void selectionSortTest(){
+        List<Integer> inputList = new ArrayList<>(Arrays.asList(233, 0,43,3,1,24,31,18,4,4,5,-1,-233));
+        ArrayList<Integer> expectedSortedList = new ArrayList<Integer>(Arrays.asList(-233,-1,0,1,3,4,4,5,18,24,31,43, 233));
+
+        // Input and Expected lists do not match
+        assertNotEquals(inputList, expectedSortedList);
+        // Ran bubbleSort method
+        Sorting.selectionSort(inputList);
+        // InputList now matches the expected SortedList as expected
+        assertEquals(inputList, expectedSortedList);
+    }
+
 }
