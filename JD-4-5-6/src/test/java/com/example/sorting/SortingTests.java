@@ -123,4 +123,18 @@ class SortingTests {
         assertEquals(inputList, expectedSortedList);
     }
 
+    @Test
+    void mergeSortTest() {
+        int[] arrayInput = new int[]{233, 0, 43, 3, 1, 24, 31, 18, 4, 4, 5, -1, -233};
+        int[] expectedOutput = new int[]{-233, -1, 0, 1, 3, 4, 4, 5, 18, 24, 31, 43, 233};
+
+        // arrayInput does not equal expectedOutput
+        Assertions.assertFalse(Arrays.equals(arrayInput, expectedOutput));
+        // Ran quickSort Method
+        Sorting.mergeSort(arrayInput);
+        // ArrayInput now equals expectedOutput
+        Assertions.assertTrue(Arrays.equals(arrayInput, expectedOutput));
+
+    }
+
 }

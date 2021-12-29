@@ -9,7 +9,7 @@ public class Sorting {
     }
 
     /**
-     *
+     * Generate a Fibonacci Sequence
      * Definition: Used to generate a Fibonnaci Sequence starting at 0 and 1, based on the length you provide.
      * @param lengthOfSequence
      * @return ArrayList<Integer>
@@ -152,7 +152,73 @@ public class Sorting {
     }
 
     /**
-     *
+     * Merge Sort -> Faster Implementation with O (n Log n)
+     * Definition: Split Array in Half and Sort Each Half Recursively.
+     * @param inputArray
+     * @return
+     */
+    public static void mergeSort(int[] inputArray){
+        int inputLength = inputArray.length;
+
+        // check if the input is less than 2 (Includes only one thing)
+        if(inputLength < 2){
+            return;
+        }
+
+        // divide the array into two arrays
+        int midIndex = inputLength / 2;
+        int[] leftHalf = new int[midIndex]; // keep in mind the odd number of entries
+        int[] rightHalf = new int[inputLength - midIndex];
+//      Only loop through 0 to the left half
+        for (int i = 0; i < midIndex; i++){
+            leftHalf[i] = inputArray[i];
+        }
+//        Loop through from the mid index value to the length of the array
+        for (int i = midIndex; i < inputLength; i++){
+            // Starts at the 0 index of the right half array
+            rightHalf[i - midIndex] = inputArray[i];
+        }
+//        Recursively call this with the left and right half
+        mergeSort(leftHalf);
+        mergeSort(rightHalf);
+
+//        Now Merge Two arrays to one sorted Array
+        merge(inputArray, leftHalf, rightHalf);
+    }
+    private static void merge(int[] originalInputArray, int[] leftHalf, int[] rightHalf){
+        int leftSize = leftHalf.length;
+        int rightSize = rightHalf.length;
+
+        int i = 0; // left half iterator
+        int j = 0; // right half iterator
+        int k = 0; // originalInputArray iterator
+
+        while( i < leftSize && j < rightSize) {
+            if(leftHalf[i] <= rightHalf[j]){
+                originalInputArray[k] = leftHalf[i];
+                i++;
+            } else {
+                originalInputArray[k] = rightHalf[j];
+                j++;
+            }
+            k++;
+        }
+        // possible elements left over for left
+        while ( i < leftSize){
+            originalInputArray[k] = leftHalf[i];
+            i++;
+            k++;
+        }
+        // possible elements left over for right
+        while ( j < rightSize){
+            originalInputArray[k] = rightHalf[j];
+            j++;
+            k++;
+        }
+    }
+
+    /**
+     * Reverse Array
      * Definition: Used to reverse an array provided in the parameters.
      * @param arrayToReverse
      * @return List<Integer>
