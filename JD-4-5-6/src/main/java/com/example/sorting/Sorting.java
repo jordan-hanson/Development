@@ -112,7 +112,7 @@ public class Sorting {
         }
     }
     /**
-     *
+     * Quick Sort
      * Definition: Recursive Sort the SubArrays with a Range.
      * @param array, lowIndex, highIndex
      * @return
