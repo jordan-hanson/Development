@@ -41,7 +41,7 @@ public class Sorting {
             // Previous index is the current index value - 1
             int previous = i-1;
             // Current index integer value
-            Integer current = fibonnaciList.get(i); //key
+            Integer current = fibonnaciList.get(i); // key
             // While previous value is greater than the current value
             while ((previous > -1) && (fibonnaciList.get(previous) > current)) {
                 // Set the values

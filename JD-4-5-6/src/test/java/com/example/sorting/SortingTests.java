@@ -30,17 +30,16 @@ class SortingTests {
 
     @Test
     void insertionSortGreatestValue(){
-        List<Integer> unsortedlist = new ArrayList<>(Arrays.asList(233, 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89));
-        ArrayList<Integer> expectedSortedList = new ArrayList<Integer>(Arrays.asList(-233,-1,0,1,3,4,4,5,18,24,31,43, 233));
+        List<Integer> unsortedList = new ArrayList<>(Arrays.asList(233, 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89));
+        ArrayList<Integer> expectedSortedList = new ArrayList<Integer>(Arrays.asList(0,1, 1, 2, 3, 5, 8, 13,21,34,55, 89, 233));
         Integer expectedOut = 1;
-        assertEquals(expectedOut, Sorting.insertionSort(unsortedlist));
 
         // unsortedList and expectedSortedList do NOT equal each other
-        assertNotEquals(expectedSortedList, unsortedlist);
+        assertNotEquals(expectedSortedList, unsortedList);
         // assert the Negative value (-233) is inserted at index of zero with -1 return
-        assertEquals(expectedOut, Sorting.insertionSort(unsortedlist));
+        assertEquals(expectedOut, Sorting.insertionSort(unsortedList));
         // expect unsortedList to be sorted after insertionSort method in-place
-        assertEquals(expectedSortedList, unsortedlist);
+        assertEquals(expectedSortedList, unsortedList);
 
     }
 
