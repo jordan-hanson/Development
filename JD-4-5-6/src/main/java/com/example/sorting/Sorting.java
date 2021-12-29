@@ -41,7 +41,7 @@ public class Sorting {
             // Previous index is the current index value - 1
             int previous = i-1;
             // Current index integer value
-            Integer current = fibonnaciList.get(i); // key
+            Integer current = fibonnaciList.get(i); //key
             // While previous value is greater than the current value
             while ((previous > -1) && (fibonnaciList.get(previous) > current)) {
                 // Set the values
@@ -83,14 +83,14 @@ public class Sorting {
     /**
      * Selection Sort
      * Definition: Sort parameter List with Integer 233 added at the 0 index of FibonacciSequence
-     * @param fibonnaciList
+     * @param fibonacciList
      *
      * Notes: Outer Loop count: 12, Inner Loop count: 78, Total count = 90 loops.
      */
-    public static void selectionSort(List<Integer> fibonnaciList){
+    public static void selectionSort(List<Integer> fibonacciList){
 
-        // Loop through the fibonnaciList and sort starting at index of 0
-        int n = fibonnaciList.size();
+        // Loop through the fibonacciList and sort starting at index of 0
+        int n = fibonacciList.size();
 
         // One by one move boundary of unsorted subarray
         for (int i = 0; i < n-1; i++)
@@ -99,17 +99,56 @@ public class Sorting {
             int min_idx = i;
             for (int j = i+1; j < n; j++)
             {
-                if (fibonnaciList.get(j) < fibonnaciList.get(min_idx)) {
+                if (fibonacciList.get(j) < fibonacciList.get(min_idx)) {
                     min_idx = j;
                 }
             }
 
             // Swap the found minimum element with the first
             // element
-            int temp = fibonnaciList.get(min_idx);
-            fibonnaciList.set(min_idx, fibonnaciList.get(i));
-            fibonnaciList.set(i, temp);
+            int temp = fibonacciList.get(min_idx);
+            fibonacciList.set(min_idx, fibonacciList.get(i));
+            fibonacciList.set(i, temp);
         }
+    }
+    /**
+     *
+     * Definition: Recursive Sort the SubArrays with a Range.
+     * @param array, lowIndex, highIndex
+     * @return
+     */
+    static void quickSort(int[] array, int lowIndex, int highIndex)
+    {
+        if(lowIndex >= highIndex){
+            return;
+        }
+       // choose a pivot
+        int pivot = array[highIndex];
+        // partition
+        // figure out the left and right pointers
+        int leftPointer = lowIndex;
+        int rightPointer = highIndex;
+
+        // Now move the pointers left and right to have them connect
+        while(leftPointer < rightPointer){
+            while(array[leftPointer] <= pivot && leftPointer < rightPointer){
+                leftPointer++;
+            }
+            while(array[rightPointer] >= pivot && leftPointer < rightPointer) {
+                rightPointer--;
+            }
+            // when finished swap the elements from left pointer to right pointer.
+            int temp = array[leftPointer];
+            array[leftPointer] = array[rightPointer];
+            array[rightPointer] = temp;
+        }
+        int temp = array[leftPointer];
+        array[leftPointer] = array[highIndex];
+        array[highIndex] = temp;
+
+        // Then continue to call the quick sort in a recursive matter with each new range of high and low index
+        quickSort(array, lowIndex, leftPointer -1);
+        quickSort(array, leftPointer +1, highIndex);
     }
 
     /**
